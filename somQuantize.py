@@ -36,11 +36,11 @@ normalized_img = np.array((img - np.min(img)) / (np.max(img) - np.min(img)))
 #initialize random codebook
 codebook = np.random.rand(8,8,3)
 codebook_size = codebook.shape
-#print(codebook_size)
+print("codebook_size: ",codebook_size)
 
 #declare important variables
 image_size = normalized_img.shape
-#print(image_size)
+print("image_size: ",image_size)
 alpha = 1.0
 alpha_decrement_value = 1.0/256
 change_alpha_at = image_size[0] * image_size[1]/256
@@ -97,10 +97,10 @@ for i in range(0,2):
                     pixel_count = 0
                     alpha -= alpha_decrement_value
                    
-        print(r)
+        #print(r)
     decode = True 
-# plt.imshow(codebook)
-# plt.show()
+plt.imshow(codebook)
+plt.show()
 
 # save output image
 mpimg.imsave("quantized_" + img_name, image_out)
